@@ -1,10 +1,11 @@
 function iterator(arr) {
   let index = 0;
+  let done = false;
   const iterator = {
     next() {
       const value = arr[index];
       index++;
-      console.log(value);
+      return value ? { value, done } : { value, done: true };
     }
   };
   return iterator;
@@ -12,6 +13,7 @@ function iterator(arr) {
 
 const array3 = [1, 2, 3];
 const iteratorWithNext = iterator(array3);
-iteratorWithNext.next();
-iteratorWithNext.next();
-iteratorWithNext.next();
+console.log(iteratorWithNext.next());
+console.log(iteratorWithNext.next());
+console.log(iteratorWithNext.next());
+console.log(iteratorWithNext.next());
